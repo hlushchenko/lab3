@@ -2,34 +2,34 @@
 {
     public class Stack<T>
     {
-        private int _maxLength;
-        private int _currentPos;
+        private int _size;
+        private int _length = 0;
         private T[] stack;
 
-        public Stack(int length = 1024)
+        public Stack(int size = 1024)
         {
-            _maxLength = length;
-            _currentPos = 0;
-            stack = new T[_maxLength];
+            _size = size;
+            stack = new T[_size];
         }
 
-        public int MaxSize => _maxLength;
-        public int CurrentPos => _currentPos;
-        public T Back => stack[_currentPos];
+        public int Size => _size;
+        public int Length => _length;
+        public T Back => stack[_length];
 
         public void Push(T num)
         {
-            stack[_currentPos++] = num;
+            stack[_length++] = num;
         }
 
         public T Pop()
         {
-            return stack[_currentPos - 1];
+            return stack[--_length];
         }
-
+        
+        
         public void Clear()
         {
-            _maxLength = 0;
+            _size = 0;
         }
     }
 }
