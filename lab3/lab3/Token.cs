@@ -7,6 +7,19 @@ namespace lab3
         private bool _isOperator;
         private float _value;
 
+        public Token(string value)
+        {
+            if (float.TryParse(value, out _value))
+            {
+                _isOperator = false;
+            }
+            else
+            {
+                _priority = SetPriority(value);
+            }
+
+        }
+
         private int SetPriority(string a)
         {
             switch (Convert.ToChar(a))
@@ -27,8 +40,6 @@ namespace lab3
                     return 0;
             }
         }
-
-        
 
     }
 }
