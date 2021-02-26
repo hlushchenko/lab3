@@ -2,18 +2,18 @@
 {
     public class Stack
     {
-        private int _maxSize;
+        private int _maxLength;
         private int _currentPos;
         private int[] stack;
 
         public Stack(int length = 1024)
         {
-            _maxSize = length;
+            _maxLength = length;
             _currentPos = 0;
-            stack = new int[_maxSize];
+            stack = new int[_maxLength];
         }
 
-        public int MaxSize => _maxSize;
+        public int MaxSize => _maxLength;
         public int CurrentPos => _currentPos;
         public int Back => stack[_currentPos];
 
@@ -29,7 +29,7 @@
 
         public void Clear()
         {
-            _maxSize = 0;
+            _maxLength = 0;
         }
     }
 }
