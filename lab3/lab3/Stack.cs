@@ -16,15 +16,15 @@
         public int MaxSize => _maxSize;
         public int CurrentPos => _currentPos;
         public int Back => stack[_currentPos];
-        
+
         public void Push(int num)
         {
             stack[_currentPos++] = num;
         }
 
-        public void Pop()
+        public int Pop()
         {
-            stack[_currentPos--] = 0;
+            return stack[_currentPos - 1];
         }
 
         public void Clear()
