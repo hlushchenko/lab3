@@ -6,7 +6,7 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            
+            Calculator.Calculate("1 + 2 - 3 / 12");
         }
     }
 }
