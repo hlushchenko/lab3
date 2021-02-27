@@ -7,6 +7,10 @@ namespace lab3
         private bool _isOperator;
         private float _value;
 
+        public float Value => _value;
+        public int Priority => _priority;
+        public bool IsOperator => _isOperator;
+
         public Token(string value)
         {
             if (float.TryParse(value, out _value))
