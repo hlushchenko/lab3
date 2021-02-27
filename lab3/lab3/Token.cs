@@ -15,27 +15,29 @@ namespace lab3
             }
             else
             {
-                _priority = SetPriority(value);
+                _isOperator = true;
+                _value = SetValue(value);
+                _priority = Convert.ToInt32(_value) / 2;
             }
 
         }
 
-        private int SetPriority(string a)
+        private int SetValue(string a)
         {
-            switch (Convert.ToChar(a))
+            switch (a[0])
             {
-                case '+':
-                    return 1;
-                case '-':
-                    return 1;
-                case '*':
-                    return 2;
-                case '/':
-                    return 2;
                 case '(':
                     return 0;
                 case ')':
-                    return 0;
+                    return 1;
+                case '+':
+                    return 2;
+                case '-':
+                    return 3;
+                case '*':
+                    return 4;
+                case '/':
+                    return 5;
                 default:
                     return 0;
             }
