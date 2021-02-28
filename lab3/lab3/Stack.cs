@@ -15,17 +15,13 @@
         public int Size => _size;
         public int Length => _length;
         public T Back => stack[_length-1];
+        public T Pop() =>  stack[--_length];
 
         public void Push(T num)
         {
             stack[_length++] = num;
         }
-
-        public T Pop()
-        {
-            return stack[--_length];
-        }
-
+        
         public void Clear()
         {
             _length = 0;

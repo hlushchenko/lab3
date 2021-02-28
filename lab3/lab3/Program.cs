@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace lab3
 {
@@ -6,7 +7,7 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Calculator.Calculate("1 + 2 - 3 / 12");
+            Console.WriteLine(Calculator.Calculate(args[0]));
         }
     }
 }

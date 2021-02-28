@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace lab3
 {
@@ -15,18 +16,39 @@ namespace lab3
                 {
                     operands.Push(token);
                 }
-                else
+                else if (token.Value == 1)
+                {
+                    while (operators.Back.Value != 0)
+                    {
+                        operands.Push(operators.Pop().Calculate(operands.Pop(), operands.Pop()));
+                    }
+
+                    operators.Pop();
+                }
+                else if (operators.Length == 0)
                 {
                     operators.Push(token);
                 }
+                else if (operators.Back.Priority <= token.Priority)
+                { 
+                    operators.Push(token);
+                }
+                else if (operators.Back.Priority > token.Priority)
+                {
+                    while (operators.Back.Priority > token.Priority || operators.Length != 1)
+                    {
+                        operands.Push(operators.Pop().Calculate(operands.Pop(), operands.Pop()));
+                    }
+                    operators.Push(token);
+                }
             }
-            return 0f;
+            return operands.Back.Value;
         }
 
         private static Token[] StringToToken(string input)
         {
             input = $"( {input} )";
-            string[] tokenStrings = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            string[] tokenStrings = string.Join("", input.Select(a => char.IsDigit(a) ? $"{a}" : $" {a} ")).Split(' ', StringSplitOptions.RemoveEmptyEntries);
             Token[] tokens = new Token[tokenStrings.Length];
             for (int i = 0; i < tokenStrings.Length; i++)
             {
