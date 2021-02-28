@@ -6,7 +6,7 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Calculator.Calculate( string.Join("", args)));
+            Console.WriteLine($"Result: {Calculator.Calculate( string.Join("", args))}");
         }
     }
 }
