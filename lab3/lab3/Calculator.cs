@@ -22,7 +22,6 @@ namespace lab3
                     {
                         operands.Push(operators.Pop().Calculate(operands.Pop(), operands.Pop()));
                     }
-
                     operators.Pop();
                 }
                 else if (operators.Length == 0 || token.Value == 0)
@@ -54,7 +53,6 @@ namespace lab3
             {
                 tokens[i] = new Token(tokenStrings[i]);
             }
-
             return tokens;
         }
     }

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 
 namespace lab3
 {
@@ -10,7 +7,6 @@ namespace lab3
         static void Main(string[] args)
         {
             Console.WriteLine(Calculator.Calculate( string.Join("", args)));
-
         }
     }
 }
