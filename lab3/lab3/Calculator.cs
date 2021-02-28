@@ -25,7 +25,7 @@ namespace lab3
 
                     operators.Pop();
                 }
-                else if (operators.Length == 0)
+                else if (operators.Length == 0 || token.Value == 0)
                 {
                     operators.Push(token);
                 }
