@@ -55,5 +55,10 @@ namespace lab3
             }
             return tokens;
         }
+
+        public static string[] FormatString(string str)
+        {
+            return string.Join("", str.Select(a => char.IsDigit(a) ? $"{a}" : $" {a} ")).Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        }
     }
 }

@@ -6,7 +6,13 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"Result: {Calculator.Calculate( string.Join("", args))}");
+            string stas = "(4+-3)     * 67*-45";
+            Console.WriteLine(stas);
+            string[] stacik = Calculator.FormatString(stas);
+            for (int i = 0; i < stacik.Length; i++)
+            {
+                Console.WriteLine(stacik[i]);
+            }
         }
     }
 }
