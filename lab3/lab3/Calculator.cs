@@ -67,7 +67,7 @@ namespace lab3
             str = str.Trim(' ');
             for (int i = 0; i < str.Length; i++)
             {
-                if (str[i] == '-') str = str.Remove(i+1, 1);
+                if ((i == 0 && char.IsDigit(str[i + 2])) || (i >= 2 && str[i] == '-' && !char.IsDigit(str[i-2]))) str = str.Remove(i+1, 1);
             }
         }
     }

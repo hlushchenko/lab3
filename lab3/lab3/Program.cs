@@ -6,7 +6,8 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            string str = "(4+-3)     * 67*-45";
+
+            string str = "-2 +-5";
             Console.WriteLine(str);
             Calculator.FormatString(ref str);
             Console.WriteLine(str);
