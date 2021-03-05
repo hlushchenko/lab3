@@ -48,11 +48,13 @@ namespace lab3
                     return 4;
                 case '/':
                     return 5;
+                case '^':
+                    return 6;
                 default:
                     return 0;
             }
         }
-        public Token Calculate(Token operand1, Token operand2)
+        public Token Calculate(Token operand2, Token operand1)
         {
             if (_isOperator)
             {
@@ -63,13 +65,16 @@ namespace lab3
                         value = operand1.Value + operand2.Value;
                         break;
                     case 3:
-                        value = operand2.Value - operand1.Value;
+                        value = operand1.Value - operand2.Value;
                         break;
                     case 4:
                         value = operand1.Value * operand2.Value;
                         break;
                     case 5:
-                        value = operand1.Value * operand2.Value;
+                        value = operand1.Value / operand2.Value;
+                        break;
+                    case 6:
+                        value = Convert.ToSingle(Math.Pow(operand1.Value, operand2.Value));
                         break;
                 }
                 return new Token(value);

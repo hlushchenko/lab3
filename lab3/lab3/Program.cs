@@ -6,11 +6,7 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-
-            string str = "-2 +-5";
-            Console.WriteLine(str);
-            Calculator.FormatString(ref str);
-            Console.WriteLine(str);
+            Console.WriteLine(Calculator.Calculate(Console.ReadLine()));
         }
     }
 }
