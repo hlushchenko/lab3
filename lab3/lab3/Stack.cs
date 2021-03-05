@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 
 namespace lab3
 {
@@ -7,11 +9,25 @@ namespace lab3
         private int _size;
         private int _length = 0;
         private T[] _stack;
+        public int Length => _length;
 
-        public int Length
+        public int Size
         {
-            get => _length;
-            set => _length = value;
+            get => _size;
+            set
+            {
+                if (value <= 0)
+                {
+                    _stack = new T[0];
+                }
+                else
+                {
+                    T[] newStack = new T[value];
+                    Array.Copy(_stack, newStack, Math.Min(_size, value));
+                    _stack = newStack;
+                    _size = value;
+                }
+            }
         }
 
         public Stack(int size = 0)
@@ -22,10 +38,11 @@ namespace lab3
 
         public void Push(T item)
         {
-            if (/*_length < _size*/ true)
+            if (_length >= _size)
             {
-                _stack[_length++] = item;
+                Size = _size + 1;
             }
+            _stack[_length++] = item;
         }
     }
 }

@@ -6,7 +6,12 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Stack<int> test = new Stack<int>(3);
+            Stack<int> test = new Stack<int>(2);
+            test.Push(1);
+            test.Push(1);
+            test.Push(1);
+            test.Push(1);
+            
         }
     }
 }
