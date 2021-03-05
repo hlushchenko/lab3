@@ -47,8 +47,9 @@ namespace lab3
 
         private static Token[] StringToToken(string input)
         {
+            FormatString(ref input);
             input = $"( {input} )";
-            string[] tokenStrings = string.Join("", input.Select(a => char.IsDigit(a) ? $"{a}" : $" {a} ")).Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] tokenStrings = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             Token[] tokens = new Token[tokenStrings.Length];
             for (int i = 0; i < tokenStrings.Length; i++)
             {
