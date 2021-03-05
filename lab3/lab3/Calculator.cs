@@ -6,7 +6,7 @@ namespace lab3
 {
     public class Calculator
     {
-        public static float Calculate(string input)
+        /*public static float Calculate(string input)
         {
             Token[] tokens = StringToToken(input);
             Stack<Token> operands = new Stack<Token>(16);
@@ -43,7 +43,7 @@ namespace lab3
                 }
             }
             return operands.Back.Value;
-        }
+        }*/
 
         private static Token[] StringToToken(string input)
         {

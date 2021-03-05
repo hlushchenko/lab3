@@ -6,7 +6,7 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Calculator.Calculate(Console.ReadLine()));
+            Stack<int> test = new Stack<int>(3);
         }
     }
 }

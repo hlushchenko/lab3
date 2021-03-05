@@ -1,30 +1,31 @@
-﻿namespace lab3
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace lab3
 {
     public class Stack<T>
     {
         private int _size;
         private int _length = 0;
-        private T[] stack;
+        private T[] _stack;
 
-        public Stack(int size = 128)
+        public int Length
+        {
+            get => _length;
+            set => _length = value;
+        }
+
+        public Stack(int size = 0)
         {
             _size = size;
-            stack = new T[_size];
+            _stack = new T[size];
         }
 
-        public int Size => _size;
-        public int Length => _length;
-        public T Back => stack[_length-1];
-        public T Pop() =>  stack[--_length];
-
-        public void Push(T num)
+        public void Push(T item)
         {
-            stack[_length++] = num;
-        }
-        
-        public void Clear()
-        {
-            _length = 0;
+            if (/*_length < _size*/ true)
+            {
+                _stack[_length++] = item;
+            }
         }
     }
 }
