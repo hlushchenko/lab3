@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace lab3
 {
@@ -46,14 +47,29 @@ namespace lab3
 
         private static Token[] StringToToken(string input)
         {
+            FormatString(ref input);
             input = $"( {input} )";
-            string[] tokenStrings = string.Join("", input.Select(a => char.IsDigit(a) ? $"{a}" : $" {a} ")).Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] tokenStrings = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             Token[] tokens = new Token[tokenStrings.Length];
             for (int i = 0; i < tokenStrings.Length; i++)
             {
                 tokens[i] = new Token(tokenStrings[i]);
             }
             return tokens;
+        }
+
+        public static void FormatString(ref string str)
+        {
+            str = string.Join("", str.Select(a => char.IsDigit(a) ? $"{a}" : $" {a} "));
+            while (str.Contains("  "))
+            {
+                str = str.Replace("  ", " ".ToString());
+            }
+            str = str.Trim(' ');
+            for (int i = 0; i < str.Length; i++)
+            {
+                if ((i == 0 && char.IsDigit(str[i + 2])) || (i >= 2 && str[i] == '-' && !char.IsDigit(str[i-2]))) str = str.Remove(i+1, 1);
+            }
         }
     }
 }
