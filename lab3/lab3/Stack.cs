@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 
 namespace lab3
@@ -10,7 +11,6 @@ namespace lab3
         private int _length = 0;
         private T[] _stack;
         public int Length => _length;
-
         public int Size
         {
             get => _size;
@@ -23,26 +23,28 @@ namespace lab3
                 else
                 {
                     T[] newStack = new T[value];
-                    Array.Copy(_stack, newStack, Math.Min(_size, value));
+                    Array.Copy(_stack, newStack, _size);
                     _stack = newStack;
                     _size = value;
                 }
             }
         }
-
         public Stack(int size = 0)
         {
             _size = size;
             _stack = new T[size];
         }
-
         public void Push(T item)
         {
-            if (_length >= _size)
+            if (_length >= Size)
             {
-                Size = _size + 1;
+                Size = _length + 1;
             }
             _stack[_length++] = item;
+        }
+        public T Back()
+        {
+            return _stack[_length--];
         }
     }
 }

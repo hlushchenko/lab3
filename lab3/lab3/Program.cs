@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace lab3
 {
@@ -6,12 +8,8 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Stack<int> test = new Stack<int>(2);
-            test.Push(1);
-            test.Push(1);
-            test.Push(1);
-            test.Push(1);
-            
+            var a = new Calculator();
+            Console.WriteLine();
         }
     }
 }
