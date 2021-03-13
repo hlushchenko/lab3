@@ -49,5 +49,10 @@ namespace lab3
         {
             return _stack[_length--];
         }
+
+        public T Pop()
+        {
+            return _stack[--_length];
+        }
     }
 }
