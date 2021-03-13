@@ -8,8 +8,7 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            var a = new Calculator();
-            Console.WriteLine();
+            Console.WriteLine(Calculator.Calculate(Console.ReadLine()));
         }
     }
 }

@@ -47,7 +47,7 @@ namespace lab3
         }
         public T Back()
         {
-            return _stack[_length--];
+            return _stack[_length-1];
         }
 
         public T Pop()
