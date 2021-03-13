@@ -23,7 +23,10 @@ namespace lab3
                 else
                 {
                     T[] newStack = new T[value];
-                    Array.Copy(_stack, newStack, _size);
+                    for (int i = 0; i < _stack.Length; i++)
+                    {
+                        newStack[i] = _stack[i];
+                    }
                     _stack = newStack;
                     _size = value;
                 }
