@@ -52,8 +52,8 @@ namespace lab3
 
         private static Token[] StringToToken(string input)
         {
-            //FormatString(ref input);
-            string[] tokenStrings = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            FormatString(ref input);
+            string[] tokenStrings = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             Token[] tokens = new Token[tokenStrings.Length];
             for (int i = 0; i < tokenStrings.Length; i++)
             {
@@ -72,7 +72,8 @@ namespace lab3
             str = str.Trim(' ');
             for (int i = 0; i < str.Length; i++)
             {
-                if ((i == 0 && char.IsDigit(str[i + 2])) || (i >= 2 && str[i] == '-' && !char.IsDigit(str[i-2]))) str = str.Remove(i+1, 1);
+                //if ((i == 0 && char.IsDigit(str[i + 2])) || (i >= 2 && str[i] == '-' && !char.IsDigit(str[i-2]))) str = str.Remove(i+1, 1);
+                if (i >= 2 && str[i] == '-' && !char.IsDigit(str[i - 2])) str = str.Remove(i + 1, 1);
             }
         }
     }

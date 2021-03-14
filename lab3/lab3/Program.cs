@@ -8,7 +8,8 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Calculator.Calculate(string.Join("", args)));
+            Console.WriteLine(Calculator.Calculate(Console.ReadLine()));
+            //Console.WriteLine(Calculator.Calculate(string.Join("", args)));
         }
     }
 }
