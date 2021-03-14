@@ -35,20 +35,24 @@ namespace lab3
                 }
                 else if (operators.Back().Priority > token.Priority)
                 {
-                    while (operators.Back().Priority > token.Priority || operators.Length != 1)
+                    while (operators.Back().Priority > token.Priority && operators.Length != 1)
                     {
                         operands.Push(operators.Pop().Calculate(operands.Pop(), operands.Pop()));
                     }
                     operators.Push(token);
                 }
             }
+            while (operators.Length!=0)
+            {
+                operands.Push(operators.Pop().Calculate(operands.Pop(), operands.Pop()));
+            }
+
             return operands.Back().Value;
         }
 
         private static Token[] StringToToken(string input)
         {
-            FormatString(ref input);
-            input = $"( {input} )";
+            //FormatString(ref input);
             string[] tokenStrings = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             Token[] tokens = new Token[tokenStrings.Length];
             for (int i = 0; i < tokenStrings.Length; i++)
