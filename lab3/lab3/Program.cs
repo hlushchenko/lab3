@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace lab3
 {
@@ -6,7 +8,7 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Calculator.Calculate(Console.ReadLine()));
+            Console.WriteLine(Calculator.Calculate(string.Join("", args)));
         }
     }
 }

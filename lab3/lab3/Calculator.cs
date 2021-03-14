@@ -9,8 +9,8 @@ namespace lab3
         public static float Calculate(string input)
         {
             Token[] tokens = StringToToken(input);
-            Stack<Token> operands = new Stack<Token>(16);
-            Stack<Token> operators = new Stack<Token>(16);
+            Stack<Token> operands = new Stack<Token>();
+            Stack<Token> operators = new Stack<Token>();
             foreach (var token in tokens)
             {
                 if (!token.IsOperator)
@@ -19,7 +19,7 @@ namespace lab3
                 }
                 else if (token.Value == 1)
                 {
-                    while (operators.Back.Value != 0)
+                    while (operators.Back().Value != 0)
                     {
                         operands.Push(operators.Pop().Calculate(operands.Pop(), operands.Pop()));
                     }
@@ -29,20 +29,20 @@ namespace lab3
                 {
                     operators.Push(token);
                 }
-                else if (operators.Back.Priority <= token.Priority)
-                { 
+                else if (operators.Back().Priority <= token.Priority)
+                {
                     operators.Push(token);
                 }
-                else if (operators.Back.Priority > token.Priority)
+                else if (operators.Back().Priority > token.Priority)
                 {
-                    while (operators.Back.Priority > token.Priority || operators.Length != 1)
+                    while (operators.Back().Priority > token.Priority || operators.Length != 1)
                     {
                         operands.Push(operators.Pop().Calculate(operands.Pop(), operands.Pop()));
                     }
                     operators.Push(token);
                 }
             }
-            return operands.Back.Value;
+            return operands.Back().Value;
         }
 
         private static Token[] StringToToken(string input)

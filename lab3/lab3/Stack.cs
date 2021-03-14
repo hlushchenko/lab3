@@ -1,30 +1,58 @@
-﻿namespace lab3
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Contracts;
+using System.Drawing;
+
+namespace lab3
 {
     public class Stack<T>
     {
         private int _size;
         private int _length = 0;
-        private T[] stack;
-
-        public Stack(int size = 128)
+        private T[] _stack;
+        public int Length => _length;
+        public int Size
+        {
+            get => _size;
+            set
+            {
+                if (value <= 0)
+                {
+                    _stack = new T[0];
+                }
+                else
+                {
+                    T[] newStack = new T[value];
+                    for (int i = 0; i < _stack.Length; i++)
+                    {
+                        newStack[i] = _stack[i];
+                    }
+                    _stack = newStack;
+                    _size = value;
+                }
+            }
+        }
+        public Stack(int size = 0)
         {
             _size = size;
-            stack = new T[_size];
+            _stack = new T[size];
+        }
+        public void Push(T item)
+        {
+            if (_length >= Size)
+            {
+                Size = _length + 1;
+            }
+            _stack[_length++] = item;
+        }
+        public T Back()
+        {
+            return _stack[_length-1];
         }
 
-        public int Size => _size;
-        public int Length => _length;
-        public T Back => stack[_length-1];
-        public T Pop() =>  stack[--_length];
-
-        public void Push(T num)
+        public T Pop()
         {
-            stack[_length++] = num;
-        }
-        
-        public void Clear()
-        {
-            _length = 0;
+            return _stack[--_length];
         }
     }
 }

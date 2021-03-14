@@ -22,7 +22,7 @@ namespace lab3
             {
                 _isOperator = true;
                 _value = SetValue(value);
-                _priority = Convert.ToInt32(_value) / 2;
+                _priority = SetPriority(value);
             }
         }
 
@@ -30,6 +30,29 @@ namespace lab3
         {
             _isOperator = false;
             _value = value;
+        }
+
+        private int SetPriority(string a)
+        {
+            switch (a[0])
+            {
+                case '(':
+                    return 0;
+                case ')':
+                    return 0;
+                case '+':
+                    return 1;
+                case '-':
+                    return 2;
+                case '*':
+                    return 3;
+                case '/':
+                    return 3;
+                case '^':
+                    return 4;
+                default:
+                    return 0;
+            }
         }
 
         private int SetValue(string a)
