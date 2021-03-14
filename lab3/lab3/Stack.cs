@@ -1,9 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.Contracts;
-using System.Drawing;
-
-namespace lab3
+﻿namespace lab3
 {
     public class Stack<T>
     {
