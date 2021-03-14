@@ -9,8 +9,8 @@ namespace lab3
         public static float Calculate(string input)
         {
             Token[] tokens = StringToToken(input);
-            Stack<Token> operands = new Stack<Token>(16);
-            Stack<Token> operators = new Stack<Token>(16);
+            Stack<Token> operands = new Stack<Token>();
+            Stack<Token> operators = new Stack<Token>();
             foreach (var token in tokens)
             {
                 if (!token.IsOperator)
