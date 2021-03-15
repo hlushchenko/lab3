@@ -47,9 +47,9 @@ namespace lab3
                 case '*':
                     return 3;
                 case '/':
-                    return 3;
-                case '^':
                     return 4;
+                case '^':
+                    return 5;
                 default:
                     return 0;
             }
