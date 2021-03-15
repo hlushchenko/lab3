@@ -60,9 +60,12 @@ namespace lab3
             }
             return tokens;
         }
+        public static int Factorial(int i) => i < 2 ? 1 : Factorial(i - 1)*i;
 
         public static void FormatString(ref string str)
         {
+            str = string.Join("", str.Replace("v", "1 v"));
+            str = string.Join("", str.Replace("!", "! 1"));
             str = string.Join("", str.Select(a => char.IsDigit(a) ? $"{a}" : $" {a} "));
             while (str.Contains("  "))
             {

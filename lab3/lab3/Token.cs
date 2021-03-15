@@ -50,6 +50,10 @@ namespace lab3
                     return 4;
                 case '^':
                     return 5;
+                case 'v':
+                    return 6;
+                case '!':
+                    return 7;
                 default:
                     return 0;
             }
@@ -73,6 +77,10 @@ namespace lab3
                     return 5;
                 case '^':
                     return 6;
+                case 'v':
+                    return 7;
+                case '!':
+                    return 8;
                 default:
                     return 0;
             }
@@ -99,11 +107,19 @@ namespace lab3
                     case 6:
                         value = Convert.ToSingle(Math.Pow(operand1.Value, operand2.Value));
                         break;
+                    case 7:
+                        value = MathF.Sqrt(operand2.Value);
+                        break;
+                    case 8:
+                        value = Calculator.Factorial(Convert.ToInt32(operand1.Value));
+                        break;
                 }
                 return new Token(value);
             }
             return operand1;
         }
+
+        
     }
 }
 

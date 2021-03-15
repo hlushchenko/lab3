@@ -1,4 +1,6 @@
-﻿namespace lab3
+﻿using System.Collections.Generic;
+
+namespace lab3
 {
     public class Stack<T>
     {
@@ -27,6 +29,7 @@
                 }
             }
         }
+       
         public Stack(int size = 0)
         {
             _size = size;
@@ -36,7 +39,7 @@
         {
             if (_length >= Size)
             {
-                Size = _length + 1;
+                Size =_length == 0? 2 : _length * 2 ;
             }
             _stack[_length++] = item;
         }
