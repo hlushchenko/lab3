@@ -34,7 +34,7 @@ namespace lab3
                 }
                 else if (operators.Back().Priority > token.Priority)
                 {
-                    while (operators.Back().Priority > token.Priority && operators.Length != 1)
+                    while ( operators.Length > 0 && operators.Back().Priority > token.Priority)
                     {
                         operands.Push(operators.Pop().Calculate(operands.Pop(), operands.Pop()));
                     }

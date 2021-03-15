@@ -9,4 +9,4 @@ namespace lab3
             Console.WriteLine(Calculator.Calculate(string.Join("", args)));
         }
     }
-}
+}s
